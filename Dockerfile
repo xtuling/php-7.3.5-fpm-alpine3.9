@@ -72,7 +72,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
     gcc \
     libc-dev \
     make \
-    openssl-dev \
+    libressl-dev \
     pcre-dev \
     zlib-dev \
     linux-headers \
@@ -159,17 +159,21 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 
 RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
     echo /etc/apk/respositories && \
-    apk update && \
-    apk add --no-cache bash \
-    #openssh-client \
-    gettext-dev \
-    gmp-dev \
+    apk update && apk upgrade &&\
+    apk add --no-cache \
+    bash \
+    openssh-client \
     wget \
     supervisor \
     curl \
     libcurl \
+    libzip-dev \
+    bzip2-dev \
+    imap-dev \
+    openssl-dev \
     python \
     python-dev \
+    py-pip \
     augeas-dev \
     openssl-dev \
     ca-certificates \
